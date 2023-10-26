@@ -1,0 +1,22 @@
+[project]
+name = "rbnread"
+version = "0.1.0"
+description = "reverse beacon reader"
+authors = [{ name = "swilcox", email = "steven@wilcoxzone.com" }]
+dependencies = [
+    "pytest>=7.4.3",
+    "aiohttp[speedups]>=3.8.6",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pdm.dev-dependencies]
+dev = ["ipython>=8.16.1"]
+
+[tool.pdm.scripts]
+client = { call = "rbnread.telnet_client:main" }
