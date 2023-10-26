@@ -14,3 +14,16 @@ class RBNRecord:
     wpm: int
     msg: str
     rbn_ts: datetime
+
+    def jsonify(self):
+        return {
+            "ts": self.ts.isoformat().replace("+00:00", "Z"),
+            "calling_station": self.calling_station,
+            "receiving_station": self.receiving_station,
+            "frequency": str(self.frequency),
+            "mode": self.mode,
+            "snr_db": self.snr_db,
+            "wpm": self.wpm,
+            "msg": self.msg,
+            "rbn_ts": self.rbn_ts.isoformat().replace("+00:00", "Z"),
+        }
